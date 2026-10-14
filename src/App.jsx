@@ -27,6 +27,7 @@ const projects = [
     year: "2025",
     icon: ShieldCheck,
     color: "orange",
+    githubUrl: "https://github.com/DanielTa115/splunk-ssh-brute-force-detection",
     description:
       "A hands-on detection pipeline for spotting repeated SSH login failures and suspicious access patterns in Linux logs.",
     details: [
@@ -44,6 +45,7 @@ const projects = [
     year: "2025",
     icon: Smartphone,
     color: "amber",
+    githubUrl: "https://github.com/Culty48/code_microlearning_app",
     description:
       "A bite-sized learning app concept built around short, gamified coding lessons and a shared Flutter codebase.",
     details: [
@@ -61,6 +63,43 @@ const projects = [
     year: "CONCEPT",
     icon: Monitor,
     color: "blue",
+    githubUrl: "https://github.com/DanielTa115/4413FinalProject",
+    description:
+      "A workflow dashboard concept for tracking application stages, outstanding documents, and processing timelines.",
+    details: [
+      "Organized application status into clear stages",
+      "Planned validation checks for missing information",
+      "Focused on visibility and data consistency",
+    ],
+    stack: ["Dashboard UI", "Validation", "Workflow Design"],
+    status: "Product concept",
+  },
+  {
+    number: "04",
+    title: "Course Tracker & Store App",
+    category: "MOBILE / ANDROID",
+    year: "2024",
+    icon: Smartphone,
+    color: "amber",
+    githubUrl: "https://github.com/DanielTa115/EECS4443Lab3CourseTrackerStore",
+    description:
+      "An interactive mobile utility combining a student course tracker with an in-app store, central navigation hub, and transaction logging system.",
+    details: [
+      "Designed an intuitive UI hub for seamless feature switching",
+      "Built transaction management for tracking user purchases",
+      "Implemented course tracking state and progress monitoring",
+    ],
+    stack: ["Android", "Java", "Mobile UI", "Transactions"],
+    status: "Lab Project",
+  },
+  {
+  number: "05",
+    title: "Mortgage Application Tracker",
+    category: "WEB APP / DATA",
+    year: "CONCEPT",
+    icon: Monitor,
+    color: "blue",
+    githubUrl: null,
     description:
       "A workflow dashboard concept for tracking application stages, outstanding documents, and processing timelines.",
     details: [
@@ -88,7 +127,19 @@ const experience = [
     tags: ["QA", "Charles Proxy", "Jira", "CI/CD"],
   },
   {
-    period: "SEP 2020 — DEC 2026",
+    period: "MAR. 2026 – MAR. 2029",
+    role: "Certified in Cybersecurity (CC)",
+    company: "ISC2",
+    note:
+      "Professional certification validating foundational knowledge in security principles, business continuity, access controls, and network security operations.",
+    wins: [
+      "Demonstrated core competency in security frameworks",
+      "Verified operational security and risk management practices",
+    ],
+    tags: ["Security", "ISC2", "Cybersecurity", "Compliance"],
+  },
+  {
+    period: "SEP 2020 — Current",
     role: "BSc, Computer Science",
     company: "York University",
     note:
@@ -271,7 +322,7 @@ export default function DanielTaPortfolio() {
             </h1>
             <p className="mt-8 max-w-xl text-base font-medium leading-8 text-stone-600 sm:text-lg">
               I'm Daniel, a computer science student who messes around making software,
-              likes finding problems, and breaking apps for fun and learning.
+              likes finding and solving problems.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
@@ -297,7 +348,7 @@ export default function DanielTaPortfolio() {
           </div>
 
           {/* Retro Arcade Card Visual */}
-          <div className="relative mx-auto w-full max-w-[440px] lg:ml-auto">
+          <div className="relative mx-auto w-full max-w-[520px] lg:ml-auto">
             <div className="retro-shadow-lg border-2 border-stone-900 bg-[#fffdf9] p-5 sm:p-7">
               <div className="mb-6 flex items-center justify-between border-b-2 border-stone-900 pb-3">
                 <div className="mono flex items-center gap-2 text-[10px] tracking-[0.16em] font-bold text-stone-700">
@@ -306,17 +357,21 @@ export default function DanielTaPortfolio() {
                 <span className="mono text-[10px] font-bold bg-stone-900 text-[#fbf9f1] px-2 py-0.5">LVL. 99</span>
               </div>
 
-              <div className="relative flex min-h-[230px] items-center justify-center overflow-hidden border-2 border-stone-900 bg-amber-50">
-                <div className="absolute inset-0 opacity-40" style={{ backgroundImage: "radial-gradient(#b45309 1.2px, transparent 1.2px)", backgroundSize: "16px 16px" }} />
-                <div className="absolute h-40 w-40 rounded-full border-2 border-dashed border-orange-300" />
-                
-                <div className="floaty relative flex h-24 w-24 items-center justify-center border-2 border-stone-900 bg-orange-400 text-stone-950 retro-shadow">
-                  <Terminal size={42} strokeWidth={2} />
-                </div>
-                
-                <span className="mono absolute bottom-3 left-3 text-[9px] font-bold tracking-[0.2em] text-stone-500">FIG. 01 / BUILDER</span>
-                <span className="mono absolute right-3 top-3 text-[9px] font-bold bg-green-200 border border-stone-900 px-1.5 py-0.5 text-stone-900">ONLINE_</span>
+              <div className="relative flex min-h-[300px] items-center justify-center overflow-hidden border-2 border-stone-900 bg-amber-50 p-4">
+              <div className="absolute inset-0 opacity-40" style={{ backgroundImage: "radial-gradient(#b45309 1.2px, transparent 1.2px)", backgroundSize: "16px 16px" }} />
+              
+              {/* Profile Photo Container */}
+              <div className="relative h-52 w-52 overflow-hidden border-2 border-stone-900 retro-shadow bg-orange-200">
+                <img 
+                  src="profile.jpg"
+                  alt="Daniel Ta" 
+                  className="h-full w-full object-cover"
+                />
               </div>
+              
+              <span className="mono absolute bottom-3 left-3 text-[9px] font-bold tracking-[0.2em] text-stone-600 bg-amber-100/80 px-1">FIG. 01 / DANIEL</span>
+              <span className="mono absolute right-3 top-3 text-[9px] font-bold bg-green-200 border border-stone-900 px-1.5 py-0.5 text-stone-900">ONLINE_</span>
+            </div>
 
               <div className="mt-5 grid grid-cols-2 gap-3">
                 <div className="border-2 border-stone-900 bg-stone-100 p-3 retro-shadow-sm">
@@ -419,12 +474,28 @@ export default function DanielTaPortfolio() {
                   <span className={`h-2 w-2 border border-stone-900 ${project.year === "CONCEPT" ? "bg-blue-400" : "bg-orange-500"}`} />
                   {project.status}
                 </span>
-                <button 
-                  onClick={() => setShowDetails(!showDetails)} 
-                  className="retro-button inline-flex items-center gap-2 border-2 border-stone-900 bg-stone-900 px-4 py-2 text-xs font-bold text-[#fbf9f1] retro-shadow-sm"
-                >
-                  {showDetails ? "Hide build notes" : "View build notes"} <ArrowUpRight size={14} />
-                </button>
+                
+                <div className="flex items-center gap-2">
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="retro-button inline-flex items-center gap-1.5 border-2 border-stone-900 bg-orange-400 px-3.5 py-2 text-xs font-extrabold text-stone-950 retro-shadow-sm"
+                    >
+                      <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                      </svg>
+                      GitHub <ArrowUpRight size={12} />
+                    </a>
+                  )}
+                  <button 
+                    onClick={() => setShowDetails(!showDetails)} 
+                    className="retro-button inline-flex items-center gap-2 border-2 border-stone-900 bg-stone-900 px-4 py-2 text-xs font-bold text-[#fbf9f1] retro-shadow-sm"
+                  >
+                    {showDetails ? "Hide build notes" : "View build notes"} <ArrowUpRight size={14} />
+                  </button>
+                </div>
               </div>
             </article>
           </div>
