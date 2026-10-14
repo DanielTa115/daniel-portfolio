@@ -363,7 +363,7 @@ export default function DanielTaPortfolio() {
               {/* Profile Photo Container */}
               <div className="relative h-52 w-52 overflow-hidden border-2 border-stone-900 retro-shadow bg-orange-200">
                 <img 
-                  src="profile.jpg"
+                  src="./profile.jpg"
                   alt="Daniel Ta" 
                   className="h-full w-full object-cover"
                 />
