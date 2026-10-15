@@ -25,9 +25,9 @@ const projects = [
     year: "2025",
     githubUrl: "https://github.com/DanielTa115/splunk-ssh-brute-force-detection",
     description:
-      "A hands-on detection pipeline for spotting repeated SSH login failures and suspicious access patterns in Linux logs.",
+      "Used Splunk to analyze Linux authentication logs and flag repeated failed SSH logins. Created searches, alerts, and dashboard views to investigate suspicious activity.",
     details: [
-      "Collected and explored Linux authentication logs",
+      "Collected and analyzed Linux authentication logs",
       "Wrote Splunk SPL searches for brute-force patterns",
       "Built alerting and dashboard views for investigation",
     ],
@@ -43,11 +43,11 @@ const projects = [
     year: "2025",
     githubUrl: "https://github.com/Culty48/code_microlearning_app",
     description:
-      "A bite-sized learning app concept built around short, gamified coding lessons and a shared Flutter codebase.",
+      "A Flutter app concept for learning to code through short lessons. Uses a shared Dart codebase for the mobile interface.",
     details: [
       "Built reusable screens for lesson-based learning",
       "Used Flutter and Dart for cross-platform UI",
-      "Explored a lightweight, game-like learning flow",
+      "Explored game-style progression between lessons",
     ],
     stack: ["Flutter", "Dart", "Firebase", "UI Design"],
     status: "Learning experience",
@@ -61,11 +61,11 @@ const projects = [
     year: "CONCEPT",
     githubUrl: "https://github.com/DanielTa115/4413FinalProject",
     description:
-      "A workflow dashboard concept for tracking application stages, outstanding documents, and processing timelines.",
+      "A dashboard concept for tracking mortgage applications, missing documents, and processing timelines.",
     details: [
-      "Organized application status into clear stages",
+      "Organized applications by processing stage",
       "Planned validation checks for missing information",
-      "Focused on visibility and data consistency",
+      "Planned how to display application status and document requirements",
     ],
     stack: ["Dashboard UI", "Validation", "Workflow Design"],
     status: "Product concept",
@@ -79,11 +79,11 @@ const projects = [
     year: "2024",
     githubUrl: "https://github.com/DanielTa115/EECS4443Lab3CourseTrackerStore",
     description:
-      "An interactive mobile utility combining a student course tracker with an in-app store, central navigation hub, and transaction logging system.",
+      "An Android app built with Java that combines course tracking and an in-app store. Includes a shared navigation screen and a log of purchases.",
     details: [
-      "Designed an intuitive UI hub for seamless feature switching",
-      "Built transaction management for tracking user purchases",
-      "Implemented course tracking state and progress monitoring",
+      "Built a central navigation screen for the course tracker and store",
+      "Recorded purchases in a transaction log",
+      "Tracked course state and progress",
     ],
     stack: ["Android", "Java", "Mobile UI", "Transactions"],
     status: "Lab Project",
@@ -96,11 +96,11 @@ const experience = [
     role: "QA Analyst · Automation Intern",
     company: "theScore",
     note:
-      "Tested iOS, Android, and web experiences, investigated production issues, and worked with developers to improve release confidence.",
+      "Tested iOS, Android, and web releases, investigated production issues, and worked with developers to resolve bugs.",
     wins: [
       "Identified 20+ P1 defects during testing",
       "Helped reduce manual validation time by 20%",
-      "Worked across regression, deep links, and network debugging",
+      "Ran regression tests, tested deep links, and debugged network requests",
     ],
     tags: ["QA", "Charles Proxy", "Jira", "CI/CD"],
   },
@@ -109,10 +109,10 @@ const experience = [
     role: "Certified in Cybersecurity (CC)",
     company: "ISC2",
     note:
-      "Professional certification validating foundational knowledge in security principles, business continuity, access controls, and network security operations.",
+      "Earned the ISC2 Certified in Cybersecurity credential, covering security principles, business continuity, access controls, and network security.",
     wins: [
-      "Demonstrated core competency in security frameworks",
-      "Verified operational security and risk management practices",
+      "Studied security operations and risk management",
+      "Covered business continuity, access controls, and network security",
     ],
     tags: ["Security", "ISC2", "Cybersecurity", "Compliance"],
   },
@@ -121,7 +121,7 @@ const experience = [
     role: "BSc, Computer Science",
     company: "York University",
     note:
-      "Building a foundation in software development, algorithms, systems, and practical problem-solving.",
+      "Studying software development, algorithms, and computer systems, with projects in mobile development, data, and security.",
     wins: [
       "Coursework in data structures and algorithms",
       "Projects spanning mobile apps, data, and security",
@@ -148,7 +148,7 @@ const toolNotes = {
   'Node.js': "Tooling and small web back ends.",
   Firebase: "Cross-Platform Microlearning app.",
   SQL: "Coursework and the Mortgage Application Tracker data model.",
-  Git: "Every project, every day.",
+  Git: "Version control for projects and coursework.",
   Splunk: "SSH Brute-Force Detection pipeline.",
   Jira: "Bug tracking and triage during my theScore internship.",
   'Charles Proxy': "Network debugging at theScore.",
@@ -238,7 +238,7 @@ function PhonePreview({ variant }) {
         aria-label={learn ? 'Tap to complete the lesson' : 'Tap to save course progress'}>
         <div className="phone-notch" />
         <span>{learn ? 'CODE / DAILY' : 'MY COURSES'}</span>
-        <strong>{learn ? 'A little code.\nA little progress.' : 'Your semester, sorted.'}</strong>
+        <strong>{learn ? 'Learn to code.\nOne lesson at a time.' : 'Course progress'}</strong>
         <div className="phone-lesson">
           {learn ? '01 / Variables' : 'EECS / Course tracker'}<br />
           <strong>{done ? (learn ? 'Lesson complete ✓' : 'Progress saved ✓') : (learn ? 'Hello, world!' : 'Learning in progress')}</strong>
@@ -278,7 +278,7 @@ function ProjectPreview({ project }) {
   );
 }
 
-const introHistory = 'daniel@portfolio:~$ hello\nHey, I’m Daniel. Welcome to my little corner of the web.\nType help to see what’s here.';
+const introHistory = 'daniel@portfolio:~$ hello\nHey, I’m Daniel. Thanks for stopping by.\nType help to see the commands.';
 
 export default function Portfolio() {
   const [filter, setFilter] = useState('All work');
@@ -304,7 +304,7 @@ export default function Portfolio() {
       about: 'Daniel Ta · Toronto, ON\nComputer Science @ York University\nSoftware development / QA / Cybersecurity',
       skills: skillGroups.map((g) => `${g.label.toLowerCase()}: ${g.items.join(', ')}`).join('\n'),
       projects: projects.map((p) => `${p.number}. ${p.title}`).join('\n'),
-      contact: `Let’s build something good.\n${email}\ngithub.com/DanielTa115`,
+      contact: `Get in touch:\n${email}\ngithub.com/DanielTa115`,
     };
     setPast((p) => [input, ...p]);
     setPastIndex(-1);
@@ -342,7 +342,7 @@ export default function Portfolio() {
     <header className="site-header"><div className="portfolio-shell header-inner">
       <a href="#home" className="wordmark" aria-label="Daniel Ta home">daniel ta<span>✳</span></a>
       <nav className={`navigation ${menuOpen ? 'open' : ''}`} aria-label="Main navigation">{navLinks.map(([id, label]) => <a href={`#${id}`} key={id} data-active={active === id} aria-current={active === id ? 'true' : undefined} onClick={() => setMenuOpen(false)}>{label}</a>)}</nav>
-      <Button variant="portfolio" asChild className="header-contact"><a href={`mailto:${email}`}>Let’s talk <ArrowUpRight/></a></Button>
+      <Button variant="portfolio" asChild className="header-contact"><a href={`mailto:${email}`}>Contact me <ArrowUpRight/></a></Button>
       <Button variant="quiet" size="icon" className="mobile-menu" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X/> : <Menu/>}</Button>
     </div></header>
     <main>
@@ -353,21 +353,21 @@ export default function Portfolio() {
             <div className="eyebrow"><span className="status-dot"/> OPEN TO OPPORTUNITIES</div>
             <div className="hero-kicker">Hello, world. I’m</div>
             <h1>Daniel Ta<span className="text-primary">.</span></h1>
-            <div className="hero-subtitle">Curious mind.<br/><em>Quality-minded code.</em></div>
-            <p className="hero-description">Computer science student, developer, and bug detective. I build thoughtful software and find the little things that make a big difference.</p>
+            <div className="hero-subtitle">Software development,<br/><em>testing, and security.</em></div>
+            <p className="hero-description">I’m a computer science student at York University. I’ve worked in QA at theScore and built projects in mobile development and security.</p>
             <div className="hero-actions"><Button variant="portfolio" asChild><a href="#projects">Explore my work <ArrowDown/></a></Button><Button variant="quiet" asChild><a href="https://github.com/DanielTa115" target="_blank" rel="noreferrer"><Github/> GitHub <ArrowUpRight/></a></Button></div>
             <div className="hero-location"><MapPin size={13}/> Toronto, Canada <span>·</span> Software / QA / Security</div>
           </div>
-          <a href="#playground" className="hero-sticker"><Code2 size={15}/> A LITTLE CODE. A LOT OF CURIOSITY. <ArrowUpRight size={12}/></a>
+          <a href="#playground" className="hero-sticker"><Code2 size={15}/> TRY THE TERMINAL <ArrowUpRight size={12}/></a>
         </section>
         <div className="quick-facts">
           <div className="fact"><div className="fact-label">CURRENTLY</div><div className="fact-value">Computer Science @ York</div></div>
           <div className="fact"><div className="fact-label">PREVIOUSLY</div><div className="fact-value">QA Automation @ theScore</div></div>
           <div className="fact"><div className="fact-label">CERTIFIED</div><div className="fact-value">ISC2 · Cybersecurity</div></div>
-          <div className="fact"><div className="fact-label">ALWAYS</div><div className="fact-value">Building, testing, learning ↗</div></div>
+          <div className="fact"><div className="fact-label">BASED IN</div><div className="fact-value">Toronto, Canada</div></div>
         </div>
         <section className="section" id="projects">
-          <div className="section-heading"><div><SectionIndex number="01">SELECTED WORK</SectionIndex><h2>Built with curiosity.</h2><p className="section-subtitle">Real projects. Practical problems. A few experiments along the way.</p></div><div className="filters" role="group" aria-label="Filter projects">{filters.map((f) => <Button variant="filter" key={f} aria-pressed={filter === f} onClick={() => setFilter(f)}>{f}</Button>)}</div></div>
+          <div className="section-heading"><div><SectionIndex number="01">SELECTED WORK</SectionIndex><h2>Projects</h2><p className="section-subtitle">A selection of personal and university projects.</p></div><div className="filters" role="group" aria-label="Filter projects">{filters.map((f) => <Button variant="filter" key={f} aria-pressed={filter === f} onClick={() => setFilter(f)}>{f}</Button>)}</div></div>
           <div className="project-grid">{visibleProjects.map((p) => {
             const open = expanded.includes(p.number);
             return <article className="project-card" key={p.number}>
@@ -378,7 +378,7 @@ export default function Portfolio() {
                 <p>{p.description}</p>
                 <div className="tags">{p.stack.map((t) => <span className="tag" key={t}>{t}</span>)}</div>
                 <div className="project-footer">
-                  <Button variant="quiet" aria-expanded={open} aria-controls={`notes-${p.number}`} onClick={() => setExpanded(open ? expanded.filter((x) => x !== p.number) : [...expanded, p.number])}>{open ? 'Close build notes' : 'Inside the build'} {open ? <X size={13}/> : <ArrowUpRight size={13}/>}</Button>
+                  <Button variant="quiet" aria-expanded={open} aria-controls={`notes-${p.number}`} onClick={() => setExpanded(open ? expanded.filter((x) => x !== p.number) : [...expanded, p.number])}>{open ? 'Hide details' : 'Project details'} {open ? <X size={13}/> : <ArrowUpRight size={13}/>}</Button>
                   {p.githubUrl && <a href={p.githubUrl} target="_blank" rel="noreferrer" aria-label={`View ${p.title} on GitHub`}><Github size={13}/> Source code <ArrowUpRight size={12}/></a>}
                 </div>
                 {open && <ul id={`notes-${p.number}`} className="build-notes">{p.details.map((d) => <li key={d}><Check size={14} className="shrink-0 mt-1 text-primary"/>{d}</li>)}</ul>}
@@ -388,19 +388,19 @@ export default function Portfolio() {
         </section>
       </div>
 
-      <div className="experience-band"><section id="experience" className="portfolio-shell section experience-layout"><div><SectionIndex number="02">EXPERIENCE & EDUCATION</SectionIndex><h2>Build. Test.<br/>Learn. Repeat.</h2><p className="experience-intro">Good software is more than working code. It’s careful investigation, clear communication, and caring about the details.</p><div className="tags"><span className="tag">20+ P1 defects identified</span><span className="tag">20% less manual validation</span></div></div><div>{experience.map((e) => <article className="experience-item" key={e.company}><div className="experience-top"><h3>{e.role}</h3><span className="period">{e.period}</span></div><div className="company">{e.company}</div><p>{e.note}</p><ul>{e.wins.map((w) => <li key={w}><span className="text-primary">↳</span>{w}</li>)}</ul><div className="tags">{e.tags.map((t) => <span className="tag" key={t}>{t}</span>)}</div></article>)}</div></section></div>
+      <div className="experience-band"><section id="experience" className="portfolio-shell section experience-layout"><div><SectionIndex number="02">EXPERIENCE & EDUCATION</SectionIndex><h2>Experience &amp; education</h2><p className="experience-intro">At theScore, I tested mobile and web releases, investigated bugs, and worked with developers to resolve them.</p><div className="tags"><span className="tag">20+ P1 defects identified</span><span className="tag">20% less manual validation</span></div></div><div>{experience.map((e) => <article className="experience-item" key={e.company}><div className="experience-top"><h3>{e.role}</h3><span className="period">{e.period}</span></div><div className="company">{e.company}</div><p>{e.note}</p><ul>{e.wins.map((w) => <li key={w}><span className="text-primary">↳</span>{w}</li>)}</ul><div className="tags">{e.tags.map((t) => <span className="tag" key={t}>{t}</span>)}</div></article>)}</div></section></div>
 
       <section id="toolkit" className="portfolio-shell section">
-        <div className="section-heading"><div><SectionIndex number="03">THE TOOLKIT</SectionIndex><h2>A practical little workbench.</h2><p className="section-subtitle">Technologies I’ve used across projects, coursework, and QA. Click one to see where it shows up.</p></div></div>
+        <div className="section-heading"><div><SectionIndex number="03">THE TOOLKIT</SectionIndex><h2>Tools I’ve used</h2><p className="section-subtitle">Languages, frameworks, and tools from my projects, coursework, and QA work. Select one to see where I’ve used it.</p></div></div>
         <div className="toolkit-layout">{skillGroups.map((g, i) => { const Icon = [Braces, Layers, Wrench][i]; return <div className="toolkit-group" key={g.label}><h3>{g.label}{Icon && <Icon size={16}/>}</h3><div className="tags">{g.items.map((t) => <button type="button" className="tag tool-chip" key={t} aria-pressed={tool === t} onClick={() => setTool(tool === t ? null : t)}>{t}</button>)}</div></div>; })}</div>
         <div className="tool-panel" role="status" aria-live="polite">
           {tool ? <><span className="tool-cmd">$ whereis {tool.toLowerCase()}</span><br/>→ {toolNotes[tool]}</> : <span>$ select a tool above<span className="terminal-cursor"/></span>}
         </div>
       </section>
 
-      <div className="playground-band"><section id="playground" className="portfolio-shell section playground-layout"><div><SectionIndex number="04">AFTER HOURS / THE PLAYGROUND</SectionIndex><h2>A terminal with personality.</h2><p className="experience-intro">Still curious? There’s a little more about me on the other side of the command line. Try the buttons, or type a command (↑ recalls the last one).</p><div className="command-options">{['about', 'skills', 'projects', 'contact', 'clear'].map((c) => <Button variant="quiet" key={c} onClick={() => execute(c)}>{c}<ArrowUpRight size={12}/></Button>)}</div></div><div className="command-terminal"><WindowBar title="daniel@portfolio — bash"/><div className="command-body"><div className="command-history" role="log" aria-live="polite" ref={historyRef}>{history}</div><form className="command-form" onSubmit={(e) => { e.preventDefault(); execute(command); }}><span>❯</span><input value={command} onChange={(e) => setCommand(e.target.value)} onKeyDown={onKeyDown} aria-label="Terminal command" placeholder="help" autoComplete="off" spellCheck={false}/><Button variant="quiet" size="icon" type="submit" aria-label="Run command" title="Run command"><Send size={12}/></Button></form></div></div></section></div>
+      <div className="playground-band"><section id="playground" className="portfolio-shell section playground-layout"><div><SectionIndex number="04">TERMINAL</SectionIndex><h2>Try a few commands</h2><p className="experience-intro">Explore the portfolio through a small terminal. Type help to see the commands, or use the buttons below. Press ↑ to recall a previous command.</p><div className="command-options">{['about', 'skills', 'projects', 'contact', 'clear'].map((c) => <Button variant="quiet" key={c} onClick={() => execute(c)}>{c}<ArrowUpRight size={12}/></Button>)}</div></div><div className="command-terminal"><WindowBar title="daniel@portfolio — bash"/><div className="command-body"><div className="command-history" role="log" aria-live="polite" ref={historyRef}>{history}</div><form className="command-form" onSubmit={(e) => { e.preventDefault(); execute(command); }}><span>❯</span><input value={command} onChange={(e) => setCommand(e.target.value)} onKeyDown={onKeyDown} aria-label="Terminal command" placeholder="help" autoComplete="off" spellCheck={false}/><Button variant="quiet" size="icon" type="submit" aria-label="Run command" title="Run command"><Send size={12}/></Button></form></div></div></section></div>
 
-      <div className="portfolio-shell"><section id="contact" className="contact-section"><SectionIndex number="05">NEXT CHAPTER</SectionIndex><h2>Let’s build something good<span className="text-primary">.</span></h2><p>Have an opportunity, an idea, or a really interesting bug? I’m all ears.</p><div className="contact-actions"><Button variant="portfolio" asChild><a href={`mailto:${email}`}><Mail/>{email}<ArrowUpRight/></a></Button><Button variant="quiet" size="icon" aria-label={copied ? 'Email copied' : 'Copy email address'} title={copied ? 'Copied!' : 'Copy email address'} onClick={copyEmail}>{copied ? <Check/> : <Copy/>}</Button></div></section><footer className="site-footer"><span>© 2026 DANIEL TA · BUILT WITH CARE & A LITTLE CURIOSITY</span><a href="#home">BACK TO TOP <ArrowUp size={12}/></a></footer></div>
+      <div className="portfolio-shell"><section id="contact" className="contact-section"><SectionIndex number="05">CONTACT</SectionIndex><h2>Get in touch<span className="text-primary">.</span></h2><p>I’m looking for opportunities in software development, QA, and cybersecurity. Feel free to email me.</p><div className="contact-actions"><Button variant="portfolio" asChild><a href={`mailto:${email}`}><Mail/>{email}<ArrowUpRight/></a></Button><Button variant="quiet" size="icon" aria-label={copied ? 'Email copied' : 'Copy email address'} title={copied ? 'Copied!' : 'Copy email address'} onClick={copyEmail}>{copied ? <Check/> : <Copy/>}</Button></div></section><footer className="site-footer"><span>© 2026 Daniel Ta</span><a href="#home">BACK TO TOP <ArrowUp size={12}/></a></footer></div>
     </main>
   </>;
 }
