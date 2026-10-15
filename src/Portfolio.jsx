@@ -13,6 +13,14 @@ function Github({ size = 16 }) {
   );
 }
 
+function Linkedin() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.45 0H3.55C1.59 0 0 1.59 0 3.55v16.9C0 22.41 1.59 24 3.55 24h16.9c1.96 0 3.55-1.59 3.55-3.55V3.55C24 1.59 22.41 0 20.45 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm15.11 13.02H16.9v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.26 2.37 4.26 5.46v6.28z" />
+    </svg>
+  );
+}
+
 // ---------- Content (edit your projects, experience and skills here) ----------
 // `filter` drives the filter tabs; `preview` picks the illustration (terminal | phone-learn | dashboard | phone-courses).
 const projects = [
@@ -429,7 +437,7 @@ export default function Portfolio() {
 
       <div className="playground-band"><section id="playground" className="portfolio-shell section playground-layout"><div><SectionIndex number="04">TERMINAL</SectionIndex><h2>Try a few commands</h2><p className="experience-intro">Type help or choose a command. Use ↑ to recall previous commands.</p><div className="command-options">{['about', 'skills', 'projects', 'contact', 'clear'].map((c) => <Button variant="quiet" key={c} onClick={() => execute(c)}>{c}<ArrowUpRight size={12}/></Button>)}</div></div><div className="command-terminal"><WindowBar title="daniel@portfolio — bash"/><div className="command-body"><div className="command-history" role="log" aria-live="polite" ref={historyRef}>{history}</div><form className="command-form" onSubmit={(e) => { e.preventDefault(); execute(command); }}><span>❯</span><input value={command} onChange={(e) => setCommand(e.target.value)} onKeyDown={onKeyDown} aria-label="Terminal command" placeholder="help" autoComplete="off" spellCheck={false}/><Button variant="quiet" size="icon" type="submit" aria-label="Run command" title="Run command"><Send size={12}/></Button></form></div></div></section></div>
 
-      <div className="portfolio-shell"><section id="contact" className="contact-section"><SectionIndex number="05">CONTACT</SectionIndex><h2>Get in touch<span className="text-primary">.</span></h2><p>I’m looking for opportunities in software development, QA, and cybersecurity. Feel free to email me.</p><div className="contact-actions"><Button variant="portfolio" asChild><a href={`mailto:${email}`}><Mail/>{email}<ArrowUpRight/></a></Button><Button variant="quiet" size="icon" aria-label={copied ? 'Email copied' : 'Copy email address'} title={copied ? 'Copied!' : 'Copy email address'} onClick={copyEmail}>{copied ? <Check/> : <Copy/>}</Button></div></section><footer className="site-footer"><span>© 2026 Daniel Ta</span><a href="#home">BACK TO TOP <ArrowUp size={12}/></a></footer></div>
+      <div className="portfolio-shell"><section id="contact" className="contact-section"><SectionIndex number="05">CONTACT</SectionIndex><h2>Get in touch<span className="text-primary">.</span></h2><p>I’m looking for opportunities in software development, QA, and cybersecurity. Feel free to email me or connect on LinkedIn.</p><div className="contact-actions"><Button variant="portfolio" asChild><a href={`mailto:${email}`}><Mail/>{email}<ArrowUpRight/></a></Button><Button variant="quiet" size="icon" aria-label={copied ? 'Email copied' : 'Copy email address'} title={copied ? 'Copied!' : 'Copy email address'} onClick={copyEmail}>{copied ? <Check/> : <Copy/>}</Button><Button variant="quiet" size="icon" asChild className="social-link"><a href="https://www.linkedin.com/in/daniel-ta-546737177" target="_blank" rel="noopener noreferrer" aria-label="Daniel Ta on LinkedIn" title="LinkedIn"><Linkedin/></a></Button><Button variant="quiet" size="icon" asChild className="social-link"><a href="https://github.com/DanielTa115" target="_blank" rel="noopener noreferrer" aria-label="Daniel Ta on GitHub" title="GitHub"><Github/></a></Button></div></section><footer className="site-footer"><span>© 2026 Daniel Ta</span><a href="#home">BACK TO TOP <ArrowUp size={12}/></a></footer></div>
     </main>
   </>;
 }
