@@ -102,6 +102,8 @@
 .project-preview.mobile { background:var(--blue); }
 .project-preview.web { background:var(--lime); }
 .project-preview.android { background:var(--secondary); }
+.project-preview.game { background:var(--blue); }
+.bird-game-preview { width:100%; max-width:360px; height:auto; max-height:170px; border:1px solid var(--border); border-radius:6px; box-shadow:var(--shadow); }
 .preview-index { position:absolute; left:16px; top:14px; font-family:var(--font-mono); font-size:9px; opacity:.5; }
 .preview-terminal { background:var(--terminal); color:var(--terminal-text); width:100%; max-width:370px; border-radius:6px; font-family:var(--font-mono); font-size:9px; box-shadow:var(--shadow); transform:rotate(-2deg); }
 .window-bar { display:flex; align-items:center; gap:4px; padding:10px 13px; border-bottom:1px solid color-mix(in oklch,var(--terminal-text) 15%, transparent); }

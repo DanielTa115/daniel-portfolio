@@ -22,7 +22,7 @@ function Linkedin() {
 }
 
 // ---------- Content (edit your projects, experience and skills here) ----------
-// `filter` drives the filter tabs; `preview` picks the illustration (terminal | phone-learn | dashboard | phone-courses).
+// `filter` drives the filter tabs; `preview` picks the project illustration.
 const projects = [
   {
     number: "01",
@@ -96,6 +96,24 @@ const projects = [
     stack: ["Android", "Java", "Mobile UI", "Transactions"],
     status: "Lab Project",
   },
+  {
+    number: "05",
+    title: "Floopy Bord",
+    category: "GAME / UNITY",
+    filter: "Games",
+    preview: "bird-game",
+    year: "2024",
+    githubUrl: "https://github.com/DanielTa115/Floopy-Bord",
+    description:
+      "A Flappy Bird-style game I built to practice Unity and C#. Use the spacebar to keep the bird in the air and pass through gaps between pipes.",
+    details: [
+      "Used Rigidbody2D for the bird’s movement and collision detection",
+      "Spawned moving pipes at random heights and removed them off screen",
+      "Added scoring, a game-over screen, and scene restart logic",
+    ],
+    stack: ["Unity", "C#", "2D Physics"],
+    status: "Practice project",
+  },
 ];
 
 const experience = [
@@ -165,9 +183,9 @@ const toolNotes = {
 
 // ---------- Page ----------
 const email = 'takdaniel487@gmail.com';
-const filters = ['All work', 'Security', 'Mobile', 'Web'];
+const filters = ['All work', 'Security', 'Mobile', 'Web', 'Games'];
 const navLinks = [['projects', 'Work'], ['experience', 'Experience'], ['toolkit', 'Toolkit'], ['playground', 'Playground']];
-const previewClass = { terminal: 'security', 'phone-learn': 'mobile', dashboard: 'web', 'phone-courses': 'android' };
+const previewClass = { terminal: 'security', 'phone-learn': 'mobile', dashboard: 'web', 'phone-courses': 'android', 'bird-game': 'game' };
 
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -281,7 +299,21 @@ function ProjectPreview({ project }) {
       {kind === 'phone-learn' && <PhonePreview variant="learn" />}
       {kind === 'phone-courses' && <PhonePreview variant="courses" />}
       {kind === 'dashboard' && <DashboardPreview />}
-      <span className="preview-caption">ILLUSTRATIVE PREVIEW{project.year === 'CONCEPT' ? ' / CONCEPT' : ''}{kind !== 'terminal' ? ' · TRY IT' : ''}</span>
+      {kind === 'bird-game' && <svg className="bird-game-preview" viewBox="0 0 360 170" role="img" aria-label="Illustration of a bird flying between green pipes">
+        <rect width="360" height="170" rx="6" fill="#dceef1"/>
+        <path d="M30 42h45m150-16h58" stroke="#fff" strokeWidth="12" strokeLinecap="round"/>
+        <g fill="#46775c" stroke="#244b38" strokeWidth="3">
+          <path d="M218 0h35v43h-35zM212 43h47v13h-47zM218 124h35v46h-35zM212 111h47v13h-47z"/>
+        </g>
+        <g stroke="#244b38" strokeWidth="3">
+          <ellipse cx="130" cy="83" rx="20" ry="16" fill="#e8ce68"/>
+          <ellipse cx="116" cy="88" rx="10" ry="7" fill="#e6ae52"/>
+          <path d="M149 82h13l-13 8z" fill="#e78f66"/>
+          <circle cx="138" cy="77" r="3" fill="#244b38" stroke="none"/>
+        </g>
+        <path d="M0 156h360" stroke="#9bbd8c" strokeWidth="28"/>
+      </svg>}
+      <span className="preview-caption">ILLUSTRATIVE PREVIEW{project.year === 'CONCEPT' ? ' / CONCEPT' : ''}{['phone-learn', 'phone-courses', 'dashboard'].includes(kind) ? ' · TRY IT' : ''}</span>
     </div>
   );
 }
