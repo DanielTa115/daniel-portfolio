@@ -1,6 +1,6 @@
 // Daniel Ta portfolio — all content and interactions in one file.
 import { useEffect, useRef, useState } from 'react';
-import { ArrowDown, ArrowUp, ArrowUpRight, Braces, Check, Code2, Copy, Layers, Mail, MapPin, Menu, Send, Wrench, X } from 'lucide-react';
+import { ArrowDown, ArrowUp, ArrowUpRight, Braces, Check, Copy, Layers, Mail, Menu, Send, Wrench, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import studio from '@/assets/developer-studio.jpg';
 
@@ -350,15 +350,12 @@ export default function Portfolio() {
         <section id="home" className="hero" ref={heroRef} onMouseMove={onHeroMove} onMouseLeave={onHeroLeave}>
           <img src={studio} width={1536} height={1024} className="hero-art" alt="Playful green retro computer with a pixel smile and floating coding-inspired objects" fetchPriority="high"/>
           <div className="hero-copy">
-            <div className="eyebrow"><span className="status-dot"/> OPEN TO OPPORTUNITIES</div>
             <div className="hero-kicker">Hello, world. I’m</div>
             <h1>Daniel Ta<span className="text-primary">.</span></h1>
             <div className="hero-subtitle">Software development,<br/><em>testing, and security.</em></div>
             <p className="hero-description">I’m a computer science student at York University. I’ve worked in QA at theScore and built projects in mobile development and security.</p>
             <div className="hero-actions"><Button variant="portfolio" asChild><a href="#projects">Explore my work <ArrowDown/></a></Button><Button variant="quiet" asChild><a href="https://github.com/DanielTa115" target="_blank" rel="noreferrer"><Github/> GitHub <ArrowUpRight/></a></Button></div>
-            <div className="hero-location"><MapPin size={13}/> Toronto, Canada <span>·</span> Software / QA / Security</div>
           </div>
-          <a href="#playground" className="hero-sticker"><Code2 size={15}/> TRY THE TERMINAL <ArrowUpRight size={12}/></a>
         </section>
         <div className="quick-facts">
           <div className="fact"><div className="fact-label">CURRENTLY</div><div className="fact-value">Computer Science @ York</div></div>
@@ -388,8 +385,40 @@ export default function Portfolio() {
         </section>
       </div>
 
-      <div className="experience-band"><section id="experience" className="portfolio-shell section experience-layout"><div><SectionIndex number="02">EXPERIENCE & EDUCATION</SectionIndex><h2>Experience &amp; education</h2><p className="experience-intro">At theScore, I tested mobile and web releases, investigated bugs, and worked with developers to resolve them.</p><div className="tags"><span className="tag">20+ P1 defects identified</span><span className="tag">20% less manual validation</span></div></div><div>{experience.map((e) => <article className="experience-item" key={e.company}><div className="experience-top"><h3>{e.role}</h3><span className="period">{e.period}</span></div><div className="company">{e.company}</div><p>{e.note}</p><ul>{e.wins.map((w) => <li key={w}><span className="text-primary">↳</span>{w}</li>)}</ul><div className="tags">{e.tags.map((t) => <span className="tag" key={t}>{t}</span>)}</div></article>)}</div></section></div>
-
+      <div className="experience-band">
+        <section id="experience" className="portfolio-shell section experience-layout">
+          <div className="experience-heading">
+            <SectionIndex number="02">BACKGROUND</SectionIndex>
+            <h2>Experience &amp; education</h2>
+            <p className="experience-intro">QA work at theScore, computer science at York, and a certification in cybersecurity.</p>
+          </div>
+          <div className="experience-content">
+            <div className="background-label">WORK EXPERIENCE</div>
+            <article className="experience-item work-experience">
+              <div className="experience-top"><div><div className="company">{experience[0].company}</div><h3>{experience[0].role}</h3></div><span className="period">{experience[0].period}</span></div>
+              <p>{experience[0].note}</p>
+              <ul>{experience[0].wins.map((w) => <li key={w}><Check size={16} className="shrink-0 mt-1 text-primary"/>{w}</li>)}</ul>
+              <div className="tags">{experience[0].tags.map((t) => <span className="tag" key={t}>{t}</span>)}</div>
+            </article>
+            <div className="credentials-grid">
+              <article className="experience-item education-card">
+                <div className="background-label">EDUCATION</div>
+                <h3>{experience[2].role}</h3>
+                <div className="company">{experience[2].company}</div>
+                <div className="period">{experience[2].period}</div>
+                <p>{experience[2].note}</p>
+              </article>
+              <article className="experience-item certification-card">
+                <div className="background-label">CERTIFICATION</div>
+                <div className="credential-mark">ISC2 <span>CC</span></div>
+                <h3>{experience[1].role}</h3>
+                <div className="period">{experience[1].period}</div>
+                <p>Security principles, business continuity, access controls, and network security.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
       <section id="toolkit" className="portfolio-shell section">
         <div className="section-heading"><div><SectionIndex number="03">THE TOOLKIT</SectionIndex><h2>Tools I’ve used</h2><p className="section-subtitle">Languages, frameworks, and tools from my projects, coursework, and QA work. Select one to see where I’ve used it.</p></div></div>
         <div className="toolkit-layout">{skillGroups.map((g, i) => { const Icon = [Braces, Layers, Wrench][i]; return <div className="toolkit-group" key={g.label}><h3>{g.label}{Icon && <Icon size={16}/>}</h3><div className="tags">{g.items.map((t) => <button type="button" className="tag tool-chip" key={t} aria-pressed={tool === t} onClick={() => setTool(tool === t ? null : t)}>{t}</button>)}</div></div>; })}</div>
@@ -398,7 +427,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <div className="playground-band"><section id="playground" className="portfolio-shell section playground-layout"><div><SectionIndex number="04">TERMINAL</SectionIndex><h2>Try a few commands</h2><p className="experience-intro">Explore the portfolio through a small terminal. Type help to see the commands, or use the buttons below. Press ↑ to recall a previous command.</p><div className="command-options">{['about', 'skills', 'projects', 'contact', 'clear'].map((c) => <Button variant="quiet" key={c} onClick={() => execute(c)}>{c}<ArrowUpRight size={12}/></Button>)}</div></div><div className="command-terminal"><WindowBar title="daniel@portfolio — bash"/><div className="command-body"><div className="command-history" role="log" aria-live="polite" ref={historyRef}>{history}</div><form className="command-form" onSubmit={(e) => { e.preventDefault(); execute(command); }}><span>❯</span><input value={command} onChange={(e) => setCommand(e.target.value)} onKeyDown={onKeyDown} aria-label="Terminal command" placeholder="help" autoComplete="off" spellCheck={false}/><Button variant="quiet" size="icon" type="submit" aria-label="Run command" title="Run command"><Send size={12}/></Button></form></div></div></section></div>
+      <div className="playground-band"><section id="playground" className="portfolio-shell section playground-layout"><div><SectionIndex number="04">TERMINAL</SectionIndex><h2>Try a few commands</h2><p className="experience-intro">Type help or choose a command. Use ↑ to recall previous commands.</p><div className="command-options">{['about', 'skills', 'projects', 'contact', 'clear'].map((c) => <Button variant="quiet" key={c} onClick={() => execute(c)}>{c}<ArrowUpRight size={12}/></Button>)}</div></div><div className="command-terminal"><WindowBar title="daniel@portfolio — bash"/><div className="command-body"><div className="command-history" role="log" aria-live="polite" ref={historyRef}>{history}</div><form className="command-form" onSubmit={(e) => { e.preventDefault(); execute(command); }}><span>❯</span><input value={command} onChange={(e) => setCommand(e.target.value)} onKeyDown={onKeyDown} aria-label="Terminal command" placeholder="help" autoComplete="off" spellCheck={false}/><Button variant="quiet" size="icon" type="submit" aria-label="Run command" title="Run command"><Send size={12}/></Button></form></div></div></section></div>
 
       <div className="portfolio-shell"><section id="contact" className="contact-section"><SectionIndex number="05">CONTACT</SectionIndex><h2>Get in touch<span className="text-primary">.</span></h2><p>I’m looking for opportunities in software development, QA, and cybersecurity. Feel free to email me.</p><div className="contact-actions"><Button variant="portfolio" asChild><a href={`mailto:${email}`}><Mail/>{email}<ArrowUpRight/></a></Button><Button variant="quiet" size="icon" aria-label={copied ? 'Email copied' : 'Copy email address'} title={copied ? 'Copied!' : 'Copy email address'} onClick={copyEmail}>{copied ? <Check/> : <Copy/>}</Button></div></section><footer className="site-footer"><span>© 2026 Daniel Ta</span><a href="#home">BACK TO TOP <ArrowUp size={12}/></a></footer></div>
     </main>
